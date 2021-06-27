@@ -11,7 +11,7 @@ namespace DevIO.Business.Core.Data
     public interface IRepository <TEntity> : IDisposable where TEntity : Entity
     {
         Task Adicionar(TEntity entity);
-        Task<TEntity> ObeterPorId(Guid id);
+        Task<TEntity> ObterPorId(Guid id);
         Task<List<TEntity>> ObterTodos();
         Task Atualizar(TEntity entity);
         Task Remover(Guid id);

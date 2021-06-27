@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentValidation;
+using DevIO.Business.Models.Fornecedores.Validations;
 
 namespace DevIO.Business.Models.Fornecedores
 {
@@ -17,5 +19,14 @@ namespace DevIO.Business.Models.Fornecedores
         public bool Ativo { get; set; }
         /* Relacionamento EF*/
         public ICollection<Produto> Produtos { get; set; }
+
+
+        public bool Validacao()
+        {
+            var validacao = new FornecedorValidation();
+            var result = validacao.Validate(this);
+
+            return result.IsValid;
+        }
     }
 }
